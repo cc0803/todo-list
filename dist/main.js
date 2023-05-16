@@ -1,0 +1,1 @@
+(()=>{console.log("Hello World");for(let o=0;o<22;o++)console.log(o)})();
