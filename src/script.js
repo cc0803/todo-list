@@ -1,6 +1,7 @@
 import Todo from './todoObject.js';
 import Category from './todoCategory.js';
-import css from './styles.css';
+// import css from './styles.css';
+import sass from './css/main.scss';
 
 let newTodo = Todo("clean", "clean the floor", new Date('August 11, 2023'), "house", "low");
 
