@@ -16,7 +16,6 @@ const Category = () => {
     return {add, display};
 }
 
-export default Category;
 
 function findTodo(list, todo) {
     for (let i = 0; i < list.length(); i++) {
@@ -26,3 +25,5 @@ function findTodo(list, todo) {
     }
     return list;
 }
+
+export default Category;
