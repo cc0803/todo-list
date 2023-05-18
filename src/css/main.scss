@@ -51,7 +51,8 @@ nav {
         .divider {
             width: 80%;
             height: 2px;
-            background-color: $c2;
+            background-color: $c1;
+            border-radius: 2px;
         }
         button {
             width: 80%;
@@ -73,9 +74,18 @@ button {
     background-color: transparent;
 
     &.settings {
-        font-size: $fontSizeMedium;
+        font-size: $fontSizeMediumLarge;
         color: $c1;
         margin-left: auto;
+        cursor: pointer;
+    }
+
+    &.settings:hover {
+        transform: scale(1.05);
+    }
+
+    &.settings:active {
+        transform: scale(1);
     }
 }
 
@@ -97,7 +107,7 @@ h4 {
 }
 
 button.add {
-    font-size: $fontSizeMedium;
+    font-size: $fontSizeMediumLarge;
     color: $c1;
     text-shadow: 0 0 1rem $c1;
 
@@ -107,5 +117,29 @@ button.add {
 
     &:active {
         transform: scale(1);
+    }
+}
+
+.main>.container {
+    width: 70%;
+    background-color: $c3;
+    margin: 10% auto;
+    border-radius: 2rem;
+    height: 400px;
+    color: $c1;
+    
+    &>h3 {
+        text-align: center;
+        padding: 2rem 0 1rem 0;
+        margin: 0;
+        font-size: $fontSizeMedium;
+    }
+
+    &>.divider {
+        width: 80%;
+        height: 2.5px;
+        background-color: $c1;
+        margin: 0 auto;
+        border-radius: 3px;
     }
 }
