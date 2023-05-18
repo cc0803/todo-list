@@ -27,10 +27,11 @@ body {
         grid-area: 1 / 1 / 2 / 3;
         @include flexCenter(row);
         padding: 1.5rem;
+        box-shadow: 0 0 1rem $c3;
         
         .logo {
             font-family: 'IBM Plex Mono', monospace;
-            font-size: $fontSizeHeader;
+            font-size: $fontSizeLarge;
             color: $c1;
         }
     }
@@ -39,12 +40,13 @@ body {
 nav {
     grid-area: 2 / 1 / 3 / 2;
     background-color: $c4;
+
     section {
         @include flexCenter(column);
         h3 {
             font-style: normal;
             color: $c1;
-            font-size: calc(12px + 1vw);
+            font-size: $fontSizeMedium;
         }
         .divider {
             width: 80%;
@@ -60,7 +62,8 @@ nav {
 
 .main {
     background-color: $c1;
-    grid-area: 2 / 2 / 3 / 3;   
+    grid-area: 2 / 2 / 3 / 3; 
+    box-shadow: 0 0 0.5rem $c1;     
 }
 
 button {
@@ -70,7 +73,7 @@ button {
     background-color: transparent;
 
     &.settings {
-        font-size: $fontSizeHeader;
+        font-size: $fontSizeMedium;
         color: $c1;
         margin-left: auto;
     }
@@ -78,17 +81,31 @@ button {
 
 h4 {
     color: $c1;
-    font-size: calc(10px + 0.8vw);
+    font-size: $fontSizeSmall;
     text-align: center;
     padding: 0.5rem;
     margin: 0.5rem;
+
+    &:hover {
+        border-radius: 0.5rem;
+        background-color: $c2;
+    }
+
+    &:active {
+        transform: scale(0.98);
+    }
 }
 
-h4:hover {
-    border-radius: 0.5rem;
-    background-color: $c2;
-}
+button.add {
+    font-size: $fontSizeMedium;
+    color: $c1;
+    text-shadow: 0 0 1rem $c1;
 
-h4:active {
-    transform: scale(0.98);
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    &:active {
+        transform: scale(1);
+    }
 }
