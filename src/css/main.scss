@@ -64,7 +64,8 @@ nav {
 .main {
     background-color: $c1;
     grid-area: 2 / 2 / 3 / 3; 
-    box-shadow: 0 0 0.5rem $c1;     
+    box-shadow: 0 0 0.5rem $c1;  
+    @include flexCenter(row)   
 }
 
 button {
@@ -123,9 +124,9 @@ button.add {
 .main>.container {
     width: 70%;
     background-color: $c3;
-    margin: 10% auto;
+    margin: auto;
     border-radius: 2rem;
-    height: 400px;
+    height: 80%;
     color: $c1;
     
     &>h3 {
@@ -146,7 +147,7 @@ button.add {
 }
 
 .todo{
-    width: 80%;
+    width: 100%;
     margin: auto;
     border-bottom: 1px solid $c1;
     height: 50px;
@@ -209,4 +210,20 @@ button.add {
             color: red;
         }
     }
+
+    &.due {
+        margin-right: 1rem;
+    }
+}
+
+.todo-container {
+    overflow: auto;
+    max-height: 60%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.add-todo {
+    margin: 1rem auto;
+    display: block;
 }
