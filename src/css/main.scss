@@ -127,10 +127,9 @@ button.add {
         width: 70%;
         background-color: $c3;
         border-radius: 2rem;
-        min-height: 400px;
-        max-height: 80%;
+        height: 80%;
         color: $c1;
-        overflow: auto;
+        margin: auto;
         
         &>h3 {
             text-align: center;
@@ -151,7 +150,7 @@ button.add {
 }
 
 .todo{
-    width: 80%;
+    width: 100%;
     margin: auto;
     border-bottom: 1px solid $c1;
     height: 50px;
@@ -214,13 +213,21 @@ button.add {
         &.high {
             color: red;
         }
+
+        &.due {
+            margin-right: 1rem;
+        }
     }
 }
 
-button.add-todo {
-    color: $c3;
-    font-size: $fontSizeLarge;
-    position: fixed;
-    bottom: 2vw;
-    right: 2vw;
+.todo-container {
+overflow: auto;
+max-height: 70%;
+width: 80%;
+margin: 0 auto;
+}
+
+.add-todo {
+margin: 0.5rem auto;
+display: block;
 }
