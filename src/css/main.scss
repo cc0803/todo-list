@@ -120,28 +120,33 @@ button.add {
     }
 }
 
-.main>.container {
-    width: 70%;
-    background-color: $c3;
-    margin: 10% auto;
-    border-radius: 2rem;
-    height: 400px;
-    color: $c1;
-    
-    &>h3 {
-        text-align: center;
-        padding: 2rem 0 1rem 0;
-        margin: 0;
-        font-size: $fontSizeMedium;
-    }
+.main{
+    @include flexCenter(row);    
 
-    &>.divider {
-        width: 80%;
-        height: 2.5px;
-        background-color: $c1;
-        margin: 0 auto;
-        border-radius: 3px;
-        margin-bottom: 1rem;
+    &>.container {
+        width: 70%;
+        background-color: $c3;
+        border-radius: 2rem;
+        min-height: 400px;
+        max-height: 80%;
+        color: $c1;
+        overflow: auto;
+        
+        &>h3 {
+            text-align: center;
+            padding: 2rem 0 1rem 0;
+            margin: 0;
+            font-size: $fontSizeMedium;
+        }
+
+        &>.divider {
+            width: 80%;
+            height: 2.5px;
+            background-color: $c1;
+            margin: 0 auto;
+            border-radius: 3px;
+            margin-bottom: 1rem;
+        }
     }
 }
 
@@ -156,6 +161,7 @@ button.add {
 
     &:last-of-type {
         border: 0;
+        margin-bottom: 3rem;
     }
         
     &>#check {
@@ -209,4 +215,12 @@ button.add {
             color: red;
         }
     }
+}
+
+button.add-todo {
+    color: $c3;
+    font-size: $fontSizeLarge;
+    position: fixed;
+    bottom: 2vw;
+    right: 2vw;
 }
