@@ -20,12 +20,22 @@ function detectDeletedObject(category, categoryArray) {
     })
 }
 
-const DOMObject = () {
+const DOMObject = () => {
         
     const displayTodos = display(category)
 
 }
 
-function display(category) {
+function createTodoHtml(title, description, dueDate, Category, priority) {
     
+    const paragraph = document.createElement("p")
+    paragraph.classList.add("todo");
+    
+    paragraph.innerHTML = `<input type="checkbox" name="check" id="check">
+    <span class="task">${title}</span>
+    <span class="spacer"></span>
+    <span class="priority low">${priority}</span>
+    <span class="due">${dueDate}</span>`
+
+    return paragraph;
 }

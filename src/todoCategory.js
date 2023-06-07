@@ -1,25 +1,22 @@
-const Category = () => {
+const Category = (name) => {
+    name = this.name;
     let todos = [];
 
     const add = (todo) => {
         todos.push(todo);
     }
 
-    const display = () => {
-        todos.forEach(todo => console.log(todo));
-    }
-
     const remove = (list, todo) => {
         todos = findTodo(list, todo);
     }
     
-    return {add, display};
+    return {add, remove};
 }
 
-
-function findTodo(list, todo) {
-    for (let i = 0; i < list.length(); i++) {
-        if (list[i] === todo) {
+// Find the todo, by searching the right category
+function findTodo(category, todo) {
+    for (let i = 0; i < category.length(); i++) {
+        if (category[i] === category) {
             list.splice(i, 1);
         }
     }
