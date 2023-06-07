@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400&family=Permanent+Marker&display=swap");
+* {
+  box-sizing: border-box;
+  font-family: "IBM Plex Mono", monospace;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 100px 1fr;
+  width: 100vw;
+  height: 100vh;
+}
+body header {
+  background-color: #96897f;
+  grid-area: 1/1/2/3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  padding: 1.5rem;
+  box-shadow: 0 0 1rem #96897f;
+}
+body header .logo {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: calc(20px + 2vw);
+  color: #e0e2e4;
+}
+
+nav {
+  grid-area: 2/1/3/2;
+  background-color: #625750;
+}
+nav section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+nav section h3 {
+  font-style: normal;
+  color: #e0e2e4;
+  font-size: calc(12px + 1vw);
+}
+nav section .divider {
+  width: 80%;
+  height: 2px;
+  background-color: #e0e2e4;
+  border-radius: 2px;
+}
+nav section button {
+  width: 80%;
+  cursor: pointer;
+}
+
+.main {
+  background-color: #e0e2e4;
+  grid-area: 2/2/3/3;
+  box-shadow: 0 0 0.5rem #e0e2e4;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+}
+button.settings {
+  font-size: calc(16px + 1.4vw);
+  color: #e0e2e4;
+  margin-left: auto;
+  cursor: pointer;
+}
+button.settings:hover {
+  transform: scale(1.05);
+}
+button.settings:active {
+  transform: scale(1);
+}
+
+h4 {
+  color: #e0e2e4;
+  font-size: calc(10px + 0.8vw);
+  text-align: center;
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+h4:hover {
+  border-radius: 0.5rem;
+  background-color: #c6bcb6;
+}
+h4:active {
+  transform: scale(0.98);
+}
+
+button.add {
+  font-size: calc(16px + 1.4vw);
+  color: #e0e2e4;
+  text-shadow: 0 0 1rem #e0e2e4;
+}
+button.add:hover {
+  transform: scale(1.05);
+}
+button.add:active {
+  transform: scale(1);
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.main > .container {
+  width: 70%;
+  background-color: #96897f;
+  border-radius: 2rem;
+  min-height: 400px;
+  max-height: 80%;
+  color: #e0e2e4;
+  overflow: auto;
+}
+.main > .container > h3 {
+  text-align: center;
+  padding: 2rem 0 1rem 0;
+  margin: 0;
+  font-size: calc(12px + 1vw);
+}
+.main > .container > .divider {
+  width: 80%;
+  height: 2.5px;
+  background-color: #e0e2e4;
+  margin: 0 auto;
+  border-radius: 3px;
+  margin-bottom: 1rem;
+}
+
+.todo {
+  width: 80%;
+  margin: auto;
+  border-bottom: 1px solid #e0e2e4;
+  height: 50px;
+  line-height: 50px;
+  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.todo:last-of-type {
+  border: 0;
+  margin-bottom: 3rem;
+}
+.todo > #check {
+  width: 1.1rem;
+  height: 1.1rem;
+  background-color: #e0e2e4;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px solid #ddd;
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+.todo > #check:checked::before {
+  content: "X";
+  font-family: "Permanent Marker", cursive;
+  font-weight: bold;
+  font-size: 1.4rem;
+  position: relative;
+  top: -8px;
+}
+
+.todo > span {
+  font-size: calc(8px + 0.7vw);
+  vertical-align: middle;
+}
+.todo > span.task {
+  margin-left: 1rem;
+}
+.todo > span.spacer {
+  margin: 0 auto;
+}
+.todo > span.priority {
+  margin-right: 1rem;
+  font-weight: 700;
+}
+.todo > span.priority.low {
+  color: green;
+}
+.todo > span.priority.mid {
+  color: orange;
+}
+.todo > span.priority.high {
+  color: red;
+}
+
+button.add-todo {
+  color: #96897f;
+  font-size: calc(20px + 2vw);
+  position: fixed;
+  bottom: 2vw;
+  right: 2vw;
+}/*# sourceMappingURL=main.css.map */

@@ -13,6 +13,14 @@ const Category = (name) => {
     return {add, remove};
 }
 
+const CategoryArray = () => {
+    let categories = [];
+
+    const add = (category) => {
+        categories.push(category);
+    }
+}
+
 // Find the todo, by searching the right category
 function findTodo(category, todo) {
     for (let i = 0; i < category.length(); i++) {
