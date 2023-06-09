@@ -1,4 +1,12 @@
-import { addCategoryHTML } from "./DOM.js";
+import { displayContent } from "./DOM.js";
+
+/* Object that saves all categories and can search 
+for a specific category and return this category */
+const Categories = () => {
+    var someCategories = Object.create(categoryArray());
+
+    display = displayContent(this.array);
+}
 
 const categoryArray = () => {
     this.array = [];
