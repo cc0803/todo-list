@@ -1,34 +1,17 @@
-const Category = (name) => {
-    name = this.name;
-    let todos = [];
+const categoryArray = () => {
+    this.array = [];
 
-    const add = (todo) => {
-        todos.push(todo);
-    }
-
-    const remove = (list, todo) => {
-        todos = findTodo(list, todo);
-    }
-    
-    return {add, remove};
+    let add = append(element, category = this)
 }
 
-const CategoryArray = () => {
-    let categories = [];
+const createCategory = (name) => {
+    this.name = name,
+    this.array = [],
 
-    const add = (category) => {
-        categories.push(category);
-    }
+    let add = append(element, category = this);
 }
 
-// Find the todo, by searching the right category
-function findTodo(category, todo) {
-    for (let i = 0; i < category.length(); i++) {
-        if (category[i] === category) {
-            list.splice(i, 1);
-        }
-    }
-    return list;
+export function append(element, category) {
+    // category.array because every array inside Object is named array;
+    category.array.push(element);
 }
-
-export default Category;
