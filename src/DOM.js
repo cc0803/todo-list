@@ -57,3 +57,12 @@ function changeTodoContainerHeading(category) {
     const heading = document.querySelector(".container>h3");
     heading.textContent = category.name;
 }
+
+/* displays all of the Category content and its 
+nodes inside the big todo-container in the center
+of the application.*/
+function display(category) {
+    removeContent();
+    changeTodoContainerHeading(category);
+    displayTodos(category);
+}
