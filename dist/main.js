@@ -149,6 +149,28 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 
 /***/ }),
 
+/***/ "./src/DOM.js":
+/*!********************!*\
+  !*** ./src/DOM.js ***!
+  \********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ DOM)\n/* harmony export */ });\nfunction DOM() {\n    log = (text) => {\n        console.log(text);\n    }\n    display = (category) => {\n        displayContent(category)\n    }\n\n    update = (category) => {\n        removeContent();\n        displayTodos(category)\n    }\n    return {display, update, log};\n}\n\n/* Function for creating the html \nfor every single todo task*/ \nfunction createTodoHTML(todo) {\n    let container = document.createElement(\"p\");\n    container.classList.add(\"todo\");\n\n    container.innerHTML = `\n                    <input type=\"checkbox\" name=\"${todo.title}\" id=\"check\">\n                    <span class=\"task\">${todo.title}</span>\n                    <span class=\"spacer\"></span>\n                    <span class=\"priority ${todo.priority}\">${todo.priority}</span>\n                    <span class=\"due\">${todo.dueDate}</span>\n                    `;\n    return container;\n}\n\n/* \n--createCategoryHTML creates the HTML for the single\nCategory button\n-- addCategoryHTML appends this html to the category section\n*/\n\nfunction createCategoryHTML(name) {\n    let button = document.createElement(\"button\");\n    let text = document.createElement(\"h4\");\n    text.textContent = name;\n\n    button.appendChild(text);\n    return button;\n}\n\nfunction addCategoryHTML(name) {\n    let html = createCategoryHTML(name);\n    let section = document.querySelector(\".sidebar section:last-of-type\");\n    section.appendChild(html);\n} \n\n// Selecting the todo tasks Container\nconst todoContainer = document.querySelector(\".todo-container\")\n\nfunction removeContent() {\n    todoContainer.innerHTML = \"\";\n}\n\nfunction displayTodos(category) {\n    category.array.forEach(element => {\n        todoContainer.appendChild(createTodoHTML(category));\n    })\n}   \n\nfunction changeTodoContainerHeading(category) {\n    const heading = document.querySelector(\".container>h3\");\n    heading.textContent = category.name;\n}\n\n/* displays all of the Category content and its \nnodes inside the big todo-container in the center\nof the application.*/\nfunction displayContent(category) {\n    removeContent();\n    changeTodoContainerHeading(category);\n    displayTodos(category);\n}\n\n//# sourceURL=webpack://todo-list/./src/DOM.js?");
+
+/***/ }),
+
+/***/ "./src/category.js":
+/*!*************************!*\
+  !*** ./src/category.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"append\": () => (/* binding */ append),\n/* harmony export */   \"default\": () => (/* binding */ createCategory)\n/* harmony export */ });\n/* harmony import */ var _DOM_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DOM.js */ \"./src/DOM.js\");\n\n\nfunction createCategory(name) {\n    this.name = name,\n    this.array = [],\n\n    add = function (element){\n        append(element, this)\n    }\n}\n\nfunction append(element, category) {\n    // category.array because every array inside Object is named array;\n    category.array.push(element);\n}\n\n//# sourceURL=webpack://todo-list/./src/category.js?");
+
+/***/ }),
+
 /***/ "./src/script.js":
 /*!***********************!*\
   !*** ./src/script.js ***!
@@ -156,7 +178,18 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./css/main.scss */ \"./src/css/main.scss\");\n/* harmony import */ var _fortawesome_fontawesome_free_js_fontawesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/fontawesome-free/js/fontawesome */ \"./node_modules/@fortawesome/fontawesome-free/js/fontawesome.js\");\n/* harmony import */ var _fortawesome_fontawesome_free_js_fontawesome__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_fontawesome__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _fortawesome_fontawesome_free_js_solid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/fontawesome-free/js/solid */ \"./node_modules/@fortawesome/fontawesome-free/js/solid.js\");\n/* harmony import */ var _fortawesome_fontawesome_free_js_solid__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_solid__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _fortawesome_fontawesome_free_js_regular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/fontawesome-free/js/regular */ \"./node_modules/@fortawesome/fontawesome-free/js/regular.js\");\n/* harmony import */ var _fortawesome_fontawesome_free_js_regular__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_regular__WEBPACK_IMPORTED_MODULE_3__);\n\n\n\n\n\nlet categories = document.querySelectorAll(\".sidebar section:last-of-type button\");\n\ncategories.forEach(category => {\n    category.addEventListener(\"click\", () => {\n        console.log(\"Hello World\");\n    })\n})\n\n//# sourceURL=webpack://todo-list/./src/script.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./css/main.scss */ \"./src/css/main.scss\");\n/* harmony import */ var _category__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./category */ \"./src/category.js\");\n/* harmony import */ var _todo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./todo */ \"./src/todo.js\");\n/* harmony import */ var _DOM__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DOM */ \"./src/DOM.js\");\n/* harmony import */ var _fortawesome_fontawesome_free_js_fontawesome__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/fontawesome-free/js/fontawesome */ \"./node_modules/@fortawesome/fontawesome-free/js/fontawesome.js\");\n/* harmony import */ var _fortawesome_fontawesome_free_js_fontawesome__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_fontawesome__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var _fortawesome_fontawesome_free_js_solid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fortawesome/fontawesome-free/js/solid */ \"./node_modules/@fortawesome/fontawesome-free/js/solid.js\");\n/* harmony import */ var _fortawesome_fontawesome_free_js_solid__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_solid__WEBPACK_IMPORTED_MODULE_5__);\n/* harmony import */ var _fortawesome_fontawesome_free_js_regular__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @fortawesome/fontawesome-free/js/regular */ \"./node_modules/@fortawesome/fontawesome-free/js/regular.js\");\n/* harmony import */ var _fortawesome_fontawesome_free_js_regular__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_regular__WEBPACK_IMPORTED_MODULE_6__);\n\n\n\n\n\n\n\n\nconst domObject = (0,_DOM__WEBPACK_IMPORTED_MODULE_3__[\"default\"])();\ndomObject.log(\"HEllo all fo to\");\nlet categoriesContainer = document.querySelectorAll(\".sidebar section:last-of-type button\");\n\ncategoriesContainer.forEach(category => {\n    category.addEventListener(\"click\", () => {\n\n    })\n})\n\n//# sourceURL=webpack://todo-list/./src/script.js?");
+
+/***/ }),
+
+/***/ "./src/todo.js":
+/*!*********************!*\
+  !*** ./src/todo.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ createTODO)\n/* harmony export */ });\nfunction createTODO(title, description, dueDate, priority, category) {\n    this.title = title,\n    this.description = description,\n    this.dueDate = dueDate,\n    this.priority = priority,\n    this.category = category\n}\n\nfunction findAllTodosInsideCategorie() {}\n\n//# sourceURL=webpack://todo-list/./src/todo.js?");
 
 /***/ })
 

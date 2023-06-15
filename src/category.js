@@ -1,24 +1,10 @@
-import { displayContent } from "./DOM.js";
+import DOM from "./DOM.js";
 
-/* Object that saves all categories and can search 
-for a specific category and return this category */
-const Categories = () => {
-    var someCategories = Object.create(categoryArray());
-
-    display = displayContent(this.array);
-}
-
-const categoryArray = () => {
-    this.array = [];
-
-    let add = append(element, category = this)
-}
-
-const createCategory = (name) => {
+export default function createCategory(name) {
     this.name = name,
     this.array = [],
 
-    this.add = function add(element){
+    add = function (element){
         append(element, this)
     }
 }

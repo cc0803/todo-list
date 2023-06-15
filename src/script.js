@@ -1,12 +1,17 @@
 import sass from './css/main.scss';
+import createCategory from './category';
+import createTODO from './todo';
+import DOM from './DOM';
 import '@fortawesome/fontawesome-free/js/fontawesome'
 import '@fortawesome/fontawesome-free/js/solid'
 import '@fortawesome/fontawesome-free/js/regular'
 
-let categories = document.querySelectorAll(".sidebar section:last-of-type button");
+const domObject = DOM();
+domObject.log("HEllo all fo to");
+let categoriesContainer = document.querySelectorAll(".sidebar section:last-of-type button");
 
-categories.forEach(category => {
+categoriesContainer.forEach(category => {
     category.addEventListener("click", () => {
-        console.log("Hello World");
+
     })
 })

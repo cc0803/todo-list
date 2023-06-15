@@ -1,7 +1,17 @@
-const DOM = () => {
+export default function DOM() {
+    log = (text) => {
+        console.log(text);
+    }
+    display = (category) => {
+        displayContent(category)
+    }
 
+    update = (category) => {
+        removeContent();
+        displayTodos(category)
+    }
+    return {display, update, log};
 }
-
 
 /* Function for creating the html 
 for every single todo task*/ 
@@ -61,7 +71,7 @@ function changeTodoContainerHeading(category) {
 /* displays all of the Category content and its 
 nodes inside the big todo-container in the center
 of the application.*/
-function display(category) {
+function displayContent(category) {
     removeContent();
     changeTodoContainerHeading(category);
     displayTodos(category);
