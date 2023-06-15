@@ -1,13 +1,17 @@
 export default function DOM() {
     return {
         display(category) {
-            displayContent(category)
+            displayContent(category);
         },
 
         update(category) {
             removeContent();
-            displayTodos(category)
+            displayTodos(category);
         },
+        // Functions that adds a new category in the category tab
+        addCategory(name) {
+            addCategoryHTML(name);
+        }
     }
 }
 
@@ -56,9 +60,9 @@ function removeContent() {
 }
 
 function displayTodos(category) {
-    category.array.forEach(element => {
+    for (let i = 0; i < category.array.length; i++) {
         todoContainer.appendChild(createTodoHTML(category));
-    })
+    }
 }   
 
 function changeTodoContainerHeading(category) {

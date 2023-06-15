@@ -1,9 +1,11 @@
-export default function createTODO(title, description, dueDate, priority, category) {
-    this.title = title,
-    this.description = description,
-    this.dueDate = dueDate,
-    this.priority = priority,
-    this.category = category
+export default function CreateTODO(title, description, dueDate, priority, category) {
+    return {
+        title: title,
+        description: description,
+        dueDate: dueDate,
+        priority: priority,
+        category: category
+    }
 }
 
 function findAllTodosInsideCategorie() {}

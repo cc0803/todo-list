@@ -1,9 +1,11 @@
-export default function createCategory(name) {
-    this.name = name,
-    this.array = [],
+export default function CreateCategory(name) {
 
-    add = function (element){
-        append(element, this)
+    return {
+        array: [],
+        name,
+        add(element) {
+            append(element, this)
+        },
     }
 }
 
