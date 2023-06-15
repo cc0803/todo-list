@@ -1,5 +1,3 @@
-import DOM from "./DOM.js";
-
 export default function createCategory(name) {
     this.name = name,
     this.array = [],

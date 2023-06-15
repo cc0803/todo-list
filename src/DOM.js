@@ -1,16 +1,14 @@
 export default function DOM() {
-    log = (text) => {
-        console.log(text);
-    }
-    display = (category) => {
-        displayContent(category)
-    }
+    return {
+        display(category) {
+            displayContent(category)
+        },
 
-    update = (category) => {
-        removeContent();
-        displayTodos(category)
+        update(category) {
+            removeContent();
+            displayTodos(category)
+        },
     }
-    return {display, update, log};
 }
 
 /* Function for creating the html 

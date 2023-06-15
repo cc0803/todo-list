@@ -6,9 +6,15 @@ import '@fortawesome/fontawesome-free/js/fontawesome'
 import '@fortawesome/fontawesome-free/js/solid'
 import '@fortawesome/fontawesome-free/js/regular'
 
+
+// Define DOM Object and Categories within CategoriesArray
 const domObject = DOM();
-domObject.log("HEllo all fo to");
-let categoriesContainer = document.querySelectorAll(".sidebar section:last-of-type button");
+const CategoriesArray = createCategory("CategoryArray");
+
+// CategoriesArray append default Inbox Category
+CategoriesArray.append(createCategory("Inbox"));
+
+const categoriesContainer = document.querySelectorAll(".sidebar section:last-of-type button");
 
 categoriesContainer.forEach(category => {
     category.addEventListener("click", () => {
