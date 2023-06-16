@@ -1,10 +1,10 @@
 import { CategoriesArray } from "./script";
 
-export function findCategory(name) {
-    CategoriesArray.array.forEach(category => {
+export function findCategory(array, name) {
+    array.forEach(category => {
+        console.log(category)
         if (category.name === name) {
-            console.log(category);
-            return category;
+            return category
         }
     })
 }

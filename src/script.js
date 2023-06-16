@@ -10,7 +10,7 @@ import '@fortawesome/fontawesome-free/js/regular'
 
 // Define DOM Object and Categories within CategoriesArray
 const domObject = DOM();
-export const CategoriesArray = createCategory("CategoryArray");
+const CategoriesArray = createCategory("CategoryArray");
 
 // Create Inbox Category and append first todo
 const Inbox = createCategory("Inbox")
@@ -29,8 +29,14 @@ categoriesContainer.forEach(category => {
         child. So the textContent is selected and parsed in
         as an argument, because it is equal to the name property of the object */
         const name = category.textContent;
-        
-        //findCategory is a function from scriptFunctions.js
-        domObject.display(findCategory(name));
+        const categoryToParse = CategoriesArray.array.forEach(cat => {
+            if (cat.name === name){
+                console.log(cat)
+                return cat;
+            }
+        })
+
+        console.log(categoryToParse)
+        domObject.display(category);
     })
 })
