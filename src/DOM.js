@@ -1,3 +1,5 @@
+import CreateCategory from "./category";
+
 export default function DOM() {
     return {
         display(category) {
@@ -52,8 +54,10 @@ function addCategoryHTML(name) {
     section.appendChild(html);
 } 
 
+
 // Selecting the todo tasks Container
 const todoContainer = document.querySelector(".todo-container")
+
 
 function removeContent() {
     todoContainer.innerHTML = "";
@@ -74,6 +78,7 @@ function changeTodoContainerHeading(category) {
 nodes inside the big todo-container in the center
 of the application.*/
 function displayContent(category) {
+    console.log(category)
     removeContent();
     changeTodoContainerHeading(category);
     displayTodos(category);
