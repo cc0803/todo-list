@@ -58,3 +58,11 @@ const addCategoryButton = document.querySelector(".sidebar button.add");
 addCategoryButton.addEventListener("click", () => {
     overlay.classList.remove("transparent");
 })
+
+const submitNewCategoryButton = document.querySelector(".overlay button[type='submit'");
+submitNewCategoryButton.addEventListener("click", () => {
+    const categoryName = document.querySelector(".createCategory input").textContent;
+    const newCategory = createCategory(categoryName);
+    CategoriesArray.add(newCategory);
+    document.querySelector(".createCategory input").textContent = "";
+})
