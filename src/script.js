@@ -42,3 +42,19 @@ categoriesContainer.forEach(category => {
         domObject.display(categoryToParse);
     })
 })
+
+// Make the overlay disappear when clicked
+const overlay = document.querySelector(".overlay");
+overlay.addEventListener("click", (e) => {
+    // checking to not add transparent when event was fired on child element
+    if (e.target !== overlay) {
+        return
+    }
+    overlay.classList.add("transparent");
+})
+
+const addCategoryButton = document.querySelector(".sidebar button.add");
+
+addCategoryButton.addEventListener("click", () => {
+    overlay.classList.remove("transparent");
+})
