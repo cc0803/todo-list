@@ -15,6 +15,7 @@ const CategoriesArray = createCategory("CategoryArray");
 // Create Inbox Category and append first todo
 const Inbox = createCategory("Inbox")
 Inbox.add(CreateTODO("dishes", "Clean the dishes", "02.02.2022", "low"))
+Inbox.add(CreateTODO("bathroom", "Clean the bathroom", "12.12.2023", "high"))
 
 // Append Inbox Category and add it to the Categories Tab
 CategoriesArray.add(Inbox);

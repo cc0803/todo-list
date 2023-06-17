@@ -65,7 +65,7 @@ function removeContent() {
 
 function displayTodos(category) {
     for (let i = 0; i < category.array.length; i++) {
-        todoContainer.appendChild(createTodoHTML(category));
+        todoContainer.appendChild(createTodoHTML(category.array[i]));
     }
 }   
 
