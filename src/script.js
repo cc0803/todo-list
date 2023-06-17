@@ -29,14 +29,15 @@ categoriesContainer.forEach(category => {
         child. So the textContent is selected and parsed in
         as an argument, because it is equal to the name property of the object */
         const name = category.textContent;
-        const categoryToParse = CategoriesArray.array.forEach(cat => {
-            if (cat.name === name){
-                console.log(cat)
-                return cat;
+        let categoryToParse;
+
+        /* Function that finds the category (cat) inside the CategoriesArray
+        which matches the name of the one that was clicked */
+        CategoriesArray.array.forEach(cat => {
+            if (cat.name === name) {
+                categoryToParse = cat;
             }
         })
-
-        console.log(categoryToParse)
-        domObject.display(category);
+        domObject.display(categoryToParse);
     })
 })

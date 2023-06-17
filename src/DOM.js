@@ -78,7 +78,6 @@ function changeTodoContainerHeading(category) {
 nodes inside the big todo-container in the center
 of the application.*/
 function displayContent(category) {
-    console.log(category)
     removeContent();
     changeTodoContainerHeading(category);
     displayTodos(category);
