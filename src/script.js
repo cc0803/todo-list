@@ -2,7 +2,7 @@ import sass from './css/main.scss';
 import createCategory from './category';
 import CreateTODO from './todo';
 import DOM from './DOM';
-import { findCategory } from './scriptFunctions';
+import { findCategory, categoryButtonFunction } from './scriptFunctions';
 import '@fortawesome/fontawesome-free/js/fontawesome'
 import '@fortawesome/fontawesome-free/js/solid'
 import '@fortawesome/fontawesome-free/js/regular'
@@ -25,7 +25,7 @@ domObject.addCategory(Inbox.name);
 const categoriesContainer = document.querySelectorAll(".sidebar section:last-of-type button");
 categoriesContainer.forEach(category => {
     category.addEventListener("click", () => {
-        /*Getting the text content of category because it
+        /* Getting the text content of category because it
         is the html button which has an h4 heading as a 
         child. So the textContent is selected and parsed in
         as an argument, because it is equal to the name property of the object */
@@ -45,6 +45,7 @@ categoriesContainer.forEach(category => {
 
 // Make the overlay disappear when clicked
 const overlay = document.querySelector(".overlay");
+
 overlay.addEventListener("click", (e) => {
     // checking to not add transparent when event was fired on child element
     if (e.target !== overlay) {
@@ -59,10 +60,9 @@ addCategoryButton.addEventListener("click", () => {
     overlay.classList.remove("transparent");
 })
 
-const submitNewCategoryButton = document.querySelector(".overlay button[type='submit'");
+// Selecting submit newCategoryButton and add the logic to create a new Category
+const submitNewCategoryButton = document.querySelector(".overlay button");
+
 submitNewCategoryButton.addEventListener("click", () => {
-    const categoryName = document.querySelector(".createCategory input").textContent;
-    const newCategory = createCategory(categoryName);
-    CategoriesArray.add(newCategory);
-    document.querySelector(".createCategory input").textContent = "";
+    categoryButtonFunction(CategoriesArray, overlay, domObject);
 })
