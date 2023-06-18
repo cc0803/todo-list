@@ -13,6 +13,13 @@ export default function DOM() {
         // Functions that adds a new category in the category tab
         addCategory(name) {
             addCategoryHTML(name);
+        },
+        
+        addListener(category) {
+            const cat = document.querySelector(".sidebar section:last-of-type button:last-of-type")
+            cat.addEventListener("click", () => {
+                this.display(category)
+            })
         }
     }
 }

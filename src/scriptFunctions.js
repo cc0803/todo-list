@@ -1,4 +1,3 @@
-import { CategoriesArray } from "./script";
 import createCategory from './category';
 
 export function findCategory(array, name) {
@@ -20,6 +19,9 @@ export function categoryButtonFunction(array, overlay, domObject) {
      
      //Add Category to UI
      domObject.addCategory(newCategory.name);
+     domObject.addListener(newCategory);
+
+     // Give Category EventListener
  
      // Clear the input field and make overlay transparent
      document.querySelector(".createCategory input").value = "";
