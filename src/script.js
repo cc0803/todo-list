@@ -2,6 +2,7 @@ import sass from './css/main.scss';
 import createCategory from './category';
 import CreateTODO from './todo';
 import DOM from './DOM';
+import { todoForm, validateForm } from './todo';
 import { findCategory, categoryButtonFunction} from './scriptFunctions';
 import '@fortawesome/fontawesome-free/js/fontawesome'
 import '@fortawesome/fontawesome-free/js/solid'
@@ -44,4 +45,16 @@ const submitNewCategoryButton = document.querySelector(".overlay button");
 
 submitNewCategoryButton.addEventListener("click", () => {
     categoryButtonFunction(CategoriesArray, overlay, domObject);
+})
+
+// Selecting Submit Button which creates new Todo and add this todo to Category 
+const submitNewTodoButton = document.querySelector(".overlay .createTodo button");
+
+submitNewTodoButton.addEventListener("click", (e) => {
+    if (validateForm()) {
+        todoForm();
+        const formForCreatingNewTodo = document.querySelector(".overlay .createTodo");
+        formForCreatingNewTodo.classList.add("transparent")
+        overlay.classList.add("transparent");
+    }
 })
