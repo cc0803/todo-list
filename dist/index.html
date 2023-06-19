@@ -34,49 +34,6 @@
             <h3></h3>
             <div class="divider"></div>
             <div class="todo-container">
-                <p class="todo">
-                    <input type="checkbox" name="check" id="check">
-                    <span class="task">Task</span>
-                    <span class="spacer"></span>
-                    <span class="priority low">Low</span>
-                    <span class="due">23.5.23</span>
-                </p>
-                <p class="todo">
-                    <input type="checkbox" name="check" id="check">
-                    <span class="task">Task</span>
-                    <span class="spacer"></span>
-                    <span class="priority mid">mid</span>
-                    <span class="due">23.5.23</span>
-                </p>
-                <p class="todo">
-                    <input type="checkbox" name="check" id="check">
-                    <span class="task">Task</span>
-                    <span class="spacer"></span>
-                    <span class="priority mid">mid</span>
-                    <span class="due">23.5.23</span>
-                </p>
-                <p class="todo">
-                    <input type="checkbox" name="check" id="check">
-                    <span class="task">Task</span>
-                    <span class="spacer"></span>
-                    <span class="priority mid">mid</span>
-                    <span class="due">23.5.23</span>
-                </p>
-                <p class="todo">
-                    <input type="checkbox" name="check" id="check">
-                    <span class="task">Task</span>
-                    <span class="spacer"></span>
-                    <span class="priority mid">mid</span>
-                    <span class="due">23.5.23</span>
-                </p>
-                
-                <p class="todo">
-                    <input type="checkbox" name="check" id="check">
-                    <span class="task">Task</span>
-                    <span class="spacer"></span>
-                    <span class="priority high">high</span>
-                    <span class="due">23.5.23</span>
-                </p>
             </div>
             <button class="add add-todo">
                 <i class="fa-solid fa-circle-plus" id="add-icon"></i>
@@ -84,10 +41,28 @@
         </div>
     </div>
     <div class="overlay transparent">
-        <div class="createCategory">
+        <div class="createCategory createForm">
             <h3>Category</h3>
             <input type="text" placeholder="Title" autofocus>
             <button  type="submit">Add</button>
+        </div>
+        <div class="createTodo createForm">
+            <h3>Todo</h3>
+            <form action="">
+                <label for="title">Title: </label>
+                <input type="text" placeholder="Title" name="title" id="title">
+                <label for="description">Description: </label>
+                <input type="text" placeholder="Description" name="description" id="description">
+                <label for="dueDate">Date: </label>
+                <input type="date" name="date" id="dueDate">
+                <label for="priority">Priority</label>
+                <select name="priority" id="priority">
+                    <option value="high">High</option>
+                    <option value="mid">Mid</option>
+                    <option value="low">Low</option>
+                </select>
+            </form>
+            <button type="submit">Add</button>
         </div>
     </div>
 </body>

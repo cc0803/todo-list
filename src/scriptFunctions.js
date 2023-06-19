@@ -19,7 +19,7 @@ export function categoryButtonFunction(array, overlay, domObject) {
      
      //Add Category to UI
      domObject.addCategory(newCategory.name);
-     domObject.addListener(newCategory);
+     domObject.addListener(newCategory);    
 
      // Give Category EventListener
  
