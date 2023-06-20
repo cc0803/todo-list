@@ -56,6 +56,21 @@ submitNewTodoButton.addEventListener("click", (e) => {
         todoForm();
         const formForCreatingNewTodo = document.querySelector(".overlayTwo .createTodo");
         formForCreatingNewTodo.classList.add("transparent")
-        overlay.classList.add("transparent");
+        overlayTwo.classList.add("transparent");
     }
+})
+
+// Select Button to add a Todo and give it an eventlistener
+const addTodoButton = document.querySelector(".main .add-todo");
+const overlayTwo = document.querySelector(".overlayTwo");
+
+overlayTwo.addEventListener("click", (e) => {
+    if (e.target !== overlayTwo) {
+        return 
+    }
+    overlayTwo.classList.add("transparent");
+})
+
+addTodoButton.addEventListener("click", () => {
+    overlayTwo.classList.remove("transparent");
 })

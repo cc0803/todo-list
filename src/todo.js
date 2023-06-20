@@ -15,10 +15,9 @@ let description;
 let date;
 
 function evaluateVariables() {
-    form = document.querySelector(".overlay .createTodo form");
-    title = form.querySelector("input[name='title']").value;
-    description = form.querySelector("input[name='description']").value;
-    date = form.querySelector("input[name='date']").value;
+    title = document.querySelector(".createTodo input[name='title']").value;
+    description = document.querySelector(".createTodo input[name='description']").value;
+    date = document.querySelector(".createTodo input[name='date']").value;
 }
 
 export function todoForm() {
