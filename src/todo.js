@@ -9,21 +9,24 @@ export default function CreateTODO(title, description, dueDate, priority) {
 
 
 // Variables needed for createTodo Form validation and later new todo creation
-let form;
 let title;
 let description;
 let date;
+let priority;
 
 function evaluateVariables() {
-    title = document.querySelector(".createTodo input[name='title']").value;
-    description = document.querySelector(".createTodo input[name='description']").value;
-    date = document.querySelector(".createTodo input[name='date']").value;
+    title = document.querySelector("#title").value;
+    description = document.querySelector("#description").value;
+    date = document.querySelector("#dueDate").value;
+    priority = document.querySelector("#priority").value;
 }
 
-export function todoForm() {
+export function todoForm(category) {
     if (validateForm()) {
         evaluateVariables();
-        console.log(date);
+
+        // create new Todo and return it 
+        return CreateTODO(title, description, date, priority, category)
     }
 }
 

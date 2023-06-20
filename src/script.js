@@ -11,7 +11,8 @@ import '@fortawesome/fontawesome-free/js/regular'
 
 // Define DOM Object and Categories within CategoriesArray
 const domObject = DOM();
-const CategoriesArray = createCategory("CategoryArray");
+const CategoriesArray = createCategory("CategoryArray")
+
 
 // Create Inbox Category and append first todo
 const Inbox = createCategory("Inbox")
@@ -22,6 +23,8 @@ Inbox.add(CreateTODO("bathroom", "Clean the bathroom", "12.12.2023", "high"))
 CategoriesArray.add(Inbox);
 domObject.addCategory(Inbox.name);
 domObject.addListener(Inbox);
+// Displaying Inbox as Main Category
+domObject.display(Inbox);
 
 // Make the overlay disappear when clicked
 const overlay = document.querySelector(".overlay");
@@ -53,7 +56,19 @@ const submitNewTodoButton = document.querySelector(".overlayTwo .createTodo butt
 
 submitNewTodoButton.addEventListener("click", (e) => {
     if (validateForm()) {
-        todoForm();
+        // Selecting the category through the container Title
+        const currentCategory = document.querySelector(".container>h3").textContent;
+        
+        const newTodo = todoForm(currentCategory);
+        console.log(newTodo);
+        CategoriesArray.array.forEach(category => {
+            if (category.name === currentCategory) {
+                category.add(newTodo);
+                domObject.display(category);
+            }
+        })
+
+        // UI Relevent Aspects
         const formForCreatingNewTodo = document.querySelector(".overlayTwo .createTodo");
         formForCreatingNewTodo.classList.add("transparent")
         overlayTwo.classList.add("transparent");
