@@ -38,6 +38,7 @@ const addCategoryButton = document.querySelector(".sidebar button.add");
 
 addCategoryButton.addEventListener("click", () => {
     overlay.classList.remove("transparent");
+    document.querySelector(".overlay .createCategory").classList.remove("transparent");
 })
 
 // Selecting submit newCategoryButton and add the logic to create a new Category
@@ -48,12 +49,12 @@ submitNewCategoryButton.addEventListener("click", () => {
 })
 
 // Selecting Submit Button which creates new Todo and add this todo to Category 
-const submitNewTodoButton = document.querySelector(".overlay .createTodo button");
+const submitNewTodoButton = document.querySelector(".overlayTwo .createTodo button");
 
 submitNewTodoButton.addEventListener("click", (e) => {
     if (validateForm()) {
         todoForm();
-        const formForCreatingNewTodo = document.querySelector(".overlay .createTodo");
+        const formForCreatingNewTodo = document.querySelector(".overlayTwo .createTodo");
         formForCreatingNewTodo.classList.add("transparent")
         overlay.classList.add("transparent");
     }

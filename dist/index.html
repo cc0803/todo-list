@@ -40,16 +40,18 @@
             </button>
         </div>
     </div>
-    <div class="overlay ">
-        <div class="createCategory createForm transparent">
+    <div class="overlay transparent">
+        <div class="createCategory createForm">
             <h3>Category</h3>
             <input type="text" placeholder="Title" autofocus>
             <button  type="submit">Add</button>
         </div>
-        <div class="createTodo createForm">
+    </div>
+    <div class="overlayTwo transparent">
+        <div class="createTodo createForm transparent">
             <h3>Todo</h3>
-            <!-- onsubmit return false because this prevents the page from reloading  
-                and event.preventDefault() doesnt validated if required fields are filled 
+            <!-- onsubmit return false because this prevents the page from reloading
+                and event.preventDefault() doesnt validated if required fields are filled
                 out.
             -->
             <form action="" onsubmit="return false">
