@@ -1,15 +1,5 @@
 import createCategory from './category';
 
-export function findCategory(array, name) {
-    array.forEach(category => {
-        if (category.name === name) {
-            console.log(array)
-            console.log(name)
-            return category
-        }
-    })
-}
-
 export function categoryButtonFunction(array, overlay, domObject) {
 
      // Get the name of the Category and create new Category with that name
@@ -24,6 +14,14 @@ export function categoryButtonFunction(array, overlay, domObject) {
      // Give Category EventListener
  
      // Clear the input field and make overlay transparent
-     document.querySelector(".createCategory input").value = "";
+    clearInputFields()
      overlay.classList.add("transparent");
+}
+
+export function clearInputFields() {
+    const elements = document.querySelectorAll(".createForm input");
+
+    elements.forEach(element => {
+        element.value = "";
+    })
 }

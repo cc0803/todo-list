@@ -3,7 +3,7 @@ import createCategory from './category';
 import CreateTODO from './todo';
 import DOM from './DOM';
 import { todoForm, validateForm } from './todo';
-import { findCategory, categoryButtonFunction} from './scriptFunctions';
+import { categoryButtonFunction, clearInputFields } from './scriptFunctions';
 import '@fortawesome/fontawesome-free/js/fontawesome'
 import '@fortawesome/fontawesome-free/js/solid'
 import '@fortawesome/fontawesome-free/js/regular'
@@ -69,8 +69,8 @@ submitNewTodoButton.addEventListener("click", (e) => {
         })
 
         // UI Relevent Aspects
+        clearInputFields();
         const formForCreatingNewTodo = document.querySelector(".overlayTwo .createTodo");
-        formForCreatingNewTodo.classList.add("transparent")
         overlayTwo.classList.add("transparent");
     }
 })
