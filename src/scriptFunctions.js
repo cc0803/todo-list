@@ -1,7 +1,6 @@
 import createCategory from './category';
 
 export function categoryButtonFunction(array, overlay, domObject) {
-
      // Get the name of the Category and create new Category with that name
      const categoryName = document.querySelector(".createCategory input").value;
      const newCategory = createCategory(categoryName);

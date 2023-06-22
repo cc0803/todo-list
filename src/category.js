@@ -1,4 +1,5 @@
 import Storage from "./storage";
+
 const storage = Storage();
 
 export default function CreateCategory(name) {

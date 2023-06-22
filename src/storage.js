@@ -1,15 +1,17 @@
-
-
 export default function Storage() {
     return {
         save(mainObject) {
             saveData(mainObject);
         },
-        retrive() {
-
+        retrive(key) {
+            return JSON.parse(localStorage.getItem(key));
         },
-        check() {
-
+        check(key) {
+            if (localStorage.getItem(key)) {
+                return true;
+            } else {
+                return false;
+            }
         }
     }
 }

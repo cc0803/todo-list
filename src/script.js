@@ -12,20 +12,38 @@ import '@fortawesome/fontawesome-free/js/regular'
 
 const storage = Storage();
 const domObject = DOM();
-const CategoriesArray = createCategory("CategoryArray")
+let CategoriesArray;
 
+// Check if storage is populated
+if (storage.check("main")) {
+    
+    CategoriesArray = storage.retrive("main");
 
-// Create Inbox Category and append first todo
-const Inbox = createCategory("Inbox")
-Inbox.add(CreateTODO("dishes", "Clean the dishes", "02.02.2022", "low"), CategoriesArray)
-Inbox.add(CreateTODO("bathroom", "Clean the bathroom", "12.12.2023", "high"), CategoriesArray)
+    CategoriesArray.array.forEach(category => {
+        domObject.addCategory(category.name);
+        domObject.addListener(category);
+    })
 
-// Append Inbox Category and add it to the Categories Tab
-CategoriesArray.add(Inbox, CategoriesArray);
-domObject.addCategory(Inbox.name);
-domObject.addListener(Inbox);
-// Displaying Inbox as Main Category
-domObject.display(Inbox);
+    domObject.display(CategoriesArray.array[0]);
+
+} else {
+    
+    CategoriesArray = createCategory("CategoryArray")
+
+    const Inbox = createCategory("Inbox")
+    
+    // Append Inbox Category and add it to the Categories Tab
+    CategoriesArray.add(Inbox, CategoriesArray);
+    domObject.addCategory(Inbox.name);
+    domObject.addListener(Inbox);
+    
+    // Displaying Inbox as Main Category
+    domObject.display(Inbox);    
+    
+    // Everything so far
+    storage.save(CategoriesArray);
+
+}
 
 // Make the overlay disappear when clicked
 const overlay = document.querySelector(".overlay");
@@ -49,7 +67,7 @@ addCategoryButton.addEventListener("click", () => {
 const submitNewCategoryButton = document.querySelector(".overlay button");
 
 submitNewCategoryButton.addEventListener("click", () => {
-    (CategoriesArray, overlay, domObject);
+    categoryButtonFunction(CategoriesArray, overlay, domObject);
 })
 
 // Selecting Submit Button which creates new Todo and add this todo to Category 
@@ -61,14 +79,14 @@ submitNewTodoButton.addEventListener("click", (e) => {
         const currentCategory = document.querySelector(".container>h3").textContent;
         
         const newTodo = todoForm(currentCategory);
-
+        
         CategoriesArray.array.forEach(category => {
             if (category.name === currentCategory) {
                 category.add(newTodo, CategoriesArray);
                 domObject.display(category);
             }
         })
-
+        
         // UI Relevent Aspects
         clearInputFields();
         const formForCreatingNewTodo = document.querySelector(".overlayTwo .createTodo");
