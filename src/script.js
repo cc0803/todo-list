@@ -2,6 +2,7 @@ import sass from './css/main.scss';
 import createCategory from './category';
 import CreateTODO from './todo';
 import DOM from './DOM';
+import Storage from './storage';
 import { todoForm, validateForm } from './todo';
 import { categoryButtonFunction, clearInputFields } from './scriptFunctions';
 import '@fortawesome/fontawesome-free/js/fontawesome'
@@ -9,18 +10,18 @@ import '@fortawesome/fontawesome-free/js/solid'
 import '@fortawesome/fontawesome-free/js/regular'
 
 
-// Define DOM Object and Categories within CategoriesArray
+const storage = Storage();
 const domObject = DOM();
 const CategoriesArray = createCategory("CategoryArray")
 
 
 // Create Inbox Category and append first todo
 const Inbox = createCategory("Inbox")
-Inbox.add(CreateTODO("dishes", "Clean the dishes", "02.02.2022", "low"))
-Inbox.add(CreateTODO("bathroom", "Clean the bathroom", "12.12.2023", "high"))
+Inbox.add(CreateTODO("dishes", "Clean the dishes", "02.02.2022", "low"), CategoriesArray)
+Inbox.add(CreateTODO("bathroom", "Clean the bathroom", "12.12.2023", "high"), CategoriesArray)
 
 // Append Inbox Category and add it to the Categories Tab
-CategoriesArray.add(Inbox);
+CategoriesArray.add(Inbox, CategoriesArray);
 domObject.addCategory(Inbox.name);
 domObject.addListener(Inbox);
 // Displaying Inbox as Main Category
@@ -48,7 +49,7 @@ addCategoryButton.addEventListener("click", () => {
 const submitNewCategoryButton = document.querySelector(".overlay button");
 
 submitNewCategoryButton.addEventListener("click", () => {
-    categoryButtonFunction(CategoriesArray, overlay, domObject);
+    (CategoriesArray, overlay, domObject);
 })
 
 // Selecting Submit Button which creates new Todo and add this todo to Category 
@@ -60,10 +61,10 @@ submitNewTodoButton.addEventListener("click", (e) => {
         const currentCategory = document.querySelector(".container>h3").textContent;
         
         const newTodo = todoForm(currentCategory);
-        console.log(newTodo);
+
         CategoriesArray.array.forEach(category => {
             if (category.name === currentCategory) {
-                category.add(newTodo);
+                category.add(newTodo, CategoriesArray);
                 domObject.display(category);
             }
         })

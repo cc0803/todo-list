@@ -1,10 +1,14 @@
+import Storage from "./storage";
+const storage = Storage();
+
 export default function CreateCategory(name) {
 
     return {
         array: [],
         name,
-        add(element) {
-            append(element, this)
+        add(element, CategoriesArray) {
+            append(element, this);
+            storage.save(CategoriesArray);
         },
     }
 }
