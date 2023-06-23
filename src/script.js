@@ -68,6 +68,7 @@ const submitNewCategoryButton = document.querySelector(".overlay button");
 
 submitNewCategoryButton.addEventListener("click", () => {
     categoryButtonFunction(CategoriesArray, overlay, domObject);
+    storage.save(CategoriesArray);
 })
 
 // Selecting Submit Button which creates new Todo and add this todo to Category 
@@ -75,6 +76,7 @@ const submitNewTodoButton = document.querySelector(".overlayTwo .createTodo butt
 
 submitNewTodoButton.addEventListener("click", (e) => {
     if (validateForm()) {
+
         // Selecting the category through the container Title
         const currentCategory = document.querySelector(".container>h3").textContent;
         
@@ -82,7 +84,11 @@ submitNewTodoButton.addEventListener("click", (e) => {
         
         CategoriesArray.array.forEach(category => {
             if (category.name === currentCategory) {
-                category.add(newTodo, CategoriesArray);
+                
+                /* Dont use category.add because this method is not copied for objects 
+                 in localStorage */
+                category.array.push(newTodo);
+                storage.save(CategoriesArray);
                 domObject.display(category);
             }
         })

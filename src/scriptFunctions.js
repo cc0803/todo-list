@@ -4,7 +4,7 @@ export function categoryButtonFunction(array, overlay, domObject) {
      // Get the name of the Category and create new Category with that name
      const categoryName = document.querySelector(".createCategory input").value;
      const newCategory = createCategory(categoryName);
-     array.add(newCategory, array);
+     array.array.push(newCategory);
      
      //Add Category to UI
      domObject.addCategory(newCategory.name);
