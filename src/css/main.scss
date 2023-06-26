@@ -1,313 +1,311 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400&family=Permanent+Marker&display=swap');
-@import './variables';
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400&family=Permanent+Marker&display=swap");
+@import "./variables";
 
 @mixin flexCenter($direction) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: $direction;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
 }
 
 * {
-    box-sizing: border-box;
-    font-family: $standardFont;
-    font-style: normal;
+  box-sizing: border-box;
+  font-family: $standardFont;
+  font-style: normal;
 }
 
-body {  
-    margin: 0;
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: 100px 1fr;
-    width: 100vw;
-    height: 100vh;
+body {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 100px 1fr;
+  width: 100vw;
+  height: 100vh;
 
-    header {
-        background-color: $c3;
-        grid-area: 1 / 1 / 2 / 3;
-        @include flexCenter(row);
-        padding: 1.5rem;
-        box-shadow: 0 0 1rem $c3;
-        
-        .logo {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: $fontSizeLarge;
-            color: $c1;
-        }
+  header {
+    background-color: $c3;
+    grid-area: 1 / 1 / 2 / 3;
+    @include flexCenter(row);
+    padding: 1.5rem;
+    box-shadow: 0 0 1rem $c3;
+
+    .logo {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: $fontSizeLarge;
+      color: $c1;
     }
+  }
 }
 
 nav {
-    grid-area: 2 / 1 / 3 / 2;
-    background-color: $c4;
-    display: flex;
-    flex-direction: column;
+  grid-area: 2 / 1 / 3 / 2;
+  background-color: $c4;
+  display: flex;
+  flex-direction: column;
 
-    section {
-        @include flexCenter(column);
-        h3 {
-            font-style: normal;
-            color: $c1;
-            font-size: $fontSizeMedium;
-        }
-        .divider {
-            width: 80%;
-            height: 2px;
-            background-color: $c1;
-            border-radius: 2px;
-        }
+  section {
+    @include flexCenter(column);
+    h3 {
+      font-style: normal;
+      color: $c1;
+      font-size: $fontSizeMedium;
     }
-    button {
-        width: 80%;
-        cursor: pointer;
-        align-self: center;
-        text-align: center;
+    .divider {
+      width: 80%;
+      height: 2px;
+      background-color: $c1;
+      border-radius: 2px;
     }
+  }
+  button {
+    width: 80%;
+    cursor: pointer;
+    align-self: center;
+    text-align: center;
+  }
 }
 
 .main {
-    background-color: $c1;
-    grid-area: 2 / 2 / 3 / 3; 
-    box-shadow: 0 0 0.5rem $c1;     
+  background-color: $c1;
+  grid-area: 2 / 2 / 3 / 3;
+  box-shadow: 0 0 0.5rem $c1;
 }
 
 button {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    background-color: transparent;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
 
-    &.settings {
-        font-size: $fontSizeMediumLarge;
-        color: $c1;
-        margin-left: auto;
-        cursor: pointer;
-    }
+  &.settings {
+    font-size: $fontSizeMediumLarge;
+    color: $c1;
+    margin-left: auto;
+    cursor: pointer;
+  }
 
-    &.settings:hover {
-        transform: scale(1.05);
-    }
+  &.settings:hover {
+    transform: scale(1.05);
+  }
 
-    &.settings:active {
-        transform: scale(1);
-    }
+  &.settings:active {
+    transform: scale(1);
+  }
 }
 
 h4 {
-    color: $c1;
-    font-size: $fontSizeSmall;
-    text-align: center;
-    padding: 0.5rem;
-    margin: 0.5rem;
+  color: $c1;
+  font-size: $fontSizeSmall;
+  text-align: center;
+  padding: 0.5rem;
+  margin: 0.5rem;
 
-    &:hover {
-        border-radius: 0.5rem;
-        background-color: $c2;
-    }
+  &:hover {
+    border-radius: 0.5rem;
+    background-color: $c2;
+  }
 
-    &:active {
-        transform: scale(0.98);
-    }
+  &:active {
+    transform: scale(0.98);
+  }
 }
 
 button.add {
-    font-size: $fontSizeMediumLarge;
+  font-size: $fontSizeMediumLarge;
+  color: $c1;
+  text-shadow: 0 0 1rem $c1;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(1);
+  }
+}
+
+.main {
+  @include flexCenter(row);
+
+  & > .container {
+    width: 70%;
+    background-color: $c3;
+    border-radius: 2rem;
+    height: 80%;
     color: $c1;
-    text-shadow: 0 0 1rem $c1;
-
-    &:hover {
-        transform: scale(1.05);
-    }
-
-    &:active {
-        transform: scale(1);
-    }
-}
-
-.main{
-    @include flexCenter(row);    
-
-    &>.container {
-        width: 70%;
-        background-color: $c3;
-        border-radius: 2rem;
-        height: 80%;
-        color: $c1;
-        margin: auto;
-        
-        &>h3 {
-            text-align: center;
-            padding: 2rem 0 1rem 0;
-            margin: 0;
-            font-size: $fontSizeMedium;
-        }
-
-        &>.divider {
-            width: 80%;
-            height: 2.5px;
-            background-color: $c1;
-            margin: 0 auto;
-            border-radius: 3px;
-            margin-bottom: 1rem;
-        }
-    }
-}
-
-.todo{
-    width: 100%;
     margin: auto;
-    border-bottom: 1px solid $c1;
-    height: 50px;
-    line-height: 50px;
-    vertical-align: middle;
-    @include flexCenter(row);
 
-    &:last-of-type {
-        border: 0;
-        margin-bottom: 3rem;
-    }
-        
-    &>#check {
-        width: 1.1rem;
-        height: 1.1rem;
-        background-color: $c1;
-        border-radius: 50%;
-        vertical-align: middle;
-        border: 1px solid #ddd;
-        appearance: none;
-        -webkit-appearance: none;
-        cursor: pointer;
-
-        &:checked::before {
-            content: "X";
-            font-family: $Xfont;
-            font-weight: bold;
-            font-size: 1.4rem;
-            position: relative;
-            top: -8px;
-        }
+    & > h3 {
+      text-align: center;
+      padding: 2rem 0 1rem 0;
+      margin: 0;
+      font-size: $fontSizeMedium;
     }
 
+    & > .divider {
+      width: 80%;
+      height: 2.5px;
+      background-color: $c1;
+      margin: 0 auto;
+      border-radius: 3px;
+      margin-bottom: 1rem;
+    }
+  }
 }
 
-.todo>span {
-    font-size: $fontSizeExtraSmall;
+.todo {
+  width: 100%;
+  margin: auto;
+  border-bottom: 1px solid $c1;
+  height: 50px;
+  line-height: 50px;
+  vertical-align: middle;
+  @include flexCenter(row);
+
+  &:last-of-type {
+    border: 0;
+    margin-bottom: 3rem;
+  }
+
+  & > #check {
+    width: 1.1rem;
+    height: 1.1rem;
+    background-color: $c1;
+    border-radius: 50%;
     vertical-align: middle;
+    border: 1px solid #ddd;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
 
-    &.task {
-        margin-left: 1rem;
+    &:checked::before {
+      content: "X";
+      font-family: $Xfont;
+      font-weight: bold;
+      font-size: 1.4rem;
+      position: relative;
+      top: -8px;
+    }
+  }
+}
+
+.todo > span {
+  font-size: $fontSizeExtraSmall;
+  vertical-align: middle;
+
+  &.task {
+    margin-left: 1rem;
+  }
+
+  &.spacer {
+    margin: 0 auto;
+  }
+
+  &.priority {
+    margin-right: 1rem;
+    font-weight: 700;
+
+    &.low {
+      color: green;
     }
 
-    &.spacer {
-        margin: 0 auto;
+    &.mid {
+      color: orange;
     }
 
-    &.priority {
-        margin-right: 1rem;
-        font-weight: 700;
-
-        &.low {
-            color: green;
-        }
-
-        &.mid {
-            color: orange;
-        }
-
-        &.high {
-            color: red;
-        }
-
-        &.due {
-            margin-right: 1rem;
-        }
+    &.high {
+      color: red;
     }
+
+    &.due {
+      margin-right: 1rem;
+    }
+  }
 }
 
 .todo-container {
-overflow: auto;
-max-height: 70%;
-width: 80%;
-margin: 0 auto;
+  overflow: auto;
+  max-height: 70%;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .add-todo {
-margin: 0.5rem auto;
-display: block;
+  margin: 0.5rem auto;
+  display: block;
 }
 
-.overlay, .overlayTwo {
-    transition: all 0.1s;
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    top:0;
-    left: 0;
-    background-color: $transparentGray;
+.overlay,
+.overlayTwo {
+  transition: all 0.1s;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: $transparentGray;
 
-    .createCategory {
-        height: 15vh;
+  .createCategory {
+    height: 15vh;
+  }
+
+  .createTodo {
+    height: clamp(300px, 45vh, 500px);
+    opacity: 1;
+  }
+
+  .createForm {
+    width: 50vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include flexCenter(column);
+    justify-content: space-between;
+    background-color: $c2;
+    border-radius: 1rem;
+
+    h3 {
+      margin: 1rem;
     }
-    
-    .createTodo {
-        height: clamp(300px, 45vh, 500px);
-        opacity: 1;
+
+    button[type="submit"] {
+      padding: 0.2rem 1rem;
+      border: 2px solid green;
+      color: green;
+      font-weight: 600;
+      border-radius: 0.5rem;
+      margin: 0.5rem;
+
+      &:hover {
+        background-color: $c1;
+        transform: scale(1.05);
+      }
     }
-
-    .createForm {
-        width: 50vw;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        @include flexCenter(column);
-        justify-content: space-between;
-        background-color: $c2;
-        border-radius: 1rem;
-
-        h3 {
-            margin: 1rem ;
-        }
-
-        button[type="submit"] {
-            padding: 0.2rem 1rem;
-            border: 2px solid green;
-            color: green;
-            font-weight: 600;
-            border-radius: 0.5rem;
-            margin: 0.5rem;
-
-            &:hover {
-                background-color: $c1;
-                transform: scale(1.05);
-            }
-        }
-    }
+  }
 }
 
 .createTodo form {
-    @include flexCenter(column);
-    width: 200px;
-    flex-grow: 1;
+  @include flexCenter(column);
+  width: 200px;
+  flex-grow: 1;
 
-    label {
-        padding-top: 1rem;
+  label {
+    padding-top: 1rem;
 
-        &:first-of-type {
-            padding: 0;
-        }
+    &:first-of-type {
+      padding: 0;
     }
+  }
 
-    input {
-        font-size: clamp(14px, 1vh, 20px);
-        width: 80%;
-        margin: 0 auto;
-    }
-
-
+  input {
+    font-size: clamp(14px, 1vh, 20px);
+    width: 80%;
+    margin: 0 auto;
+  }
 }
 
 .transparent {
-    opacity: 0;
-    pointer-events: none;
+  opacity: 0;
+  pointer-events: none;
 }

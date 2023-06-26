@@ -1,11 +1,11 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
-  mode: 'development',
-  entry: './src/script.js',
+  mode: "development",
+  entry: "./src/script.js",
   output: {
-    filename: 'main.js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: "main.js",
+    path: path.resolve(__dirname, "dist"),
   },
   module: {
     rules: [
@@ -15,12 +15,8 @@ module.exports = {
       },
       {
         test: /\.scss$/i,
-        use: [
-          "style-loader",
-          "css-loader",
-          "sass-loader"
-        ]
-      }
+        use: ["style-loader", "css-loader", "sass-loader"],
+      },
     ],
   },
 };

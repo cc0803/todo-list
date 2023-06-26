@@ -1,26 +1,26 @@
-import createCategory from './category';
+import createCategory from "./category";
 
 export function categoryButtonFunction(array, overlay, domObject) {
-     // Get the name of the Category and create new Category with that name
-     const categoryName = document.querySelector(".createCategory input").value;
-     const newCategory = createCategory(categoryName);
-     array.array.push(newCategory);
-     
-     //Add Category to UI
-     domObject.addCategory(newCategory.name);
-     domObject.addListener(newCategory);    
+  // Get the name of the Category and create new Category with that name
+  const categoryName = document.querySelector(".createCategory input").value;
+  const newCategory = createCategory(categoryName);
+  array.array.push(newCategory);
 
-     // Give Category EventListener
- 
-     // Clear the input field and make overlay transparent
-    clearInputFields()
-     overlay.classList.add("transparent");
+  //Add Category to UI
+  domObject.addCategory(newCategory.name);
+  domObject.addListener(newCategory);
+
+  // Give Category EventListener
+
+  // Clear the input field and make overlay transparent
+  clearInputFields();
+  overlay.classList.add("transparent");
 }
 
 export function clearInputFields() {
-    const elements = document.querySelectorAll(".createForm input");
+  const elements = document.querySelectorAll(".createForm input");
 
-    elements.forEach(element => {
-        element.value = "";
-    })
+  elements.forEach((element) => {
+    element.value = "";
+  });
 }
